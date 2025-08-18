@@ -1,7 +1,7 @@
 import { useState } from "react";
 function FileUploader() {
-    const [file, setFile] = useState(null);
-    const [preview, setPrev] = useState('');
+    const [file, setFile] = useState<File | null>(null);
+    const [preview, setPrev] = useState<string>('');
     function addFile(e) {
         if (e.target.files) {
             setFile(e.target.files[0]); // file = fileName
@@ -9,7 +9,11 @@ function FileUploader() {
             // preview :
             if (e.target.files[0].type.startsWith('image/')) {
                 const reader = new FileReader();
-                reader.onload = () => setPrev(reader.result);
+                reader.onload = () => {
+                    if (typeof reader.result === 'string') {
+                        setPrev(reader.result);
+                    }
+                };
                 reader.readAsDataURL(e.target.files[0]);
             } else {
                 setPrev('');
