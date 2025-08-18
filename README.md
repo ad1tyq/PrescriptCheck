@@ -22,6 +22,14 @@
 ### Development
 
 4. **Start the development server**:
+   create a new branch what you will be pushing to this repo.
+   then we will review the code additions and then merge it to the main branch
+   give your branch any name you want. eg. newBranch, branchAayush, whtv etc.
+   ```bash
+   git checkout -b newBranch
+   ```
+
+5. **Start the development server**:
    ```bash
    npm run dev
    ```
