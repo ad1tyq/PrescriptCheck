@@ -38,6 +38,9 @@
    npm run dev
    ```
 
+The application will be available at [http://localhost:5173/](http://localhost:5173/)
+
+
 ### Pushing Code
 
 4. **Start the development server**:
@@ -54,4 +57,4 @@
    git push -u origin newBranch
    ```
 
-   The application will be available at [http://localhost:5173/](http://localhost:5173/)
+
