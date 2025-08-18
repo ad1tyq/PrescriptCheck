@@ -4,7 +4,7 @@
 
 1. **Clone the repository** (if not already done):
    ```bash
-   git clone 
+   git clone https://github.com/ad1tyq/ScriptCheck
    cd ScriptCheck
    ```
 
