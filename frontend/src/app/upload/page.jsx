@@ -1,7 +1,11 @@
+import FileUploader from "../../components/fileUploader";
 function UploadPage(){
     return(
         <>
-            <p>Upload</p>
+            <div className="overflow-y-scroll h-[31rem]" style={{scrollbarWidth: 'none'}}>
+                <FileUploader/>
+            </div>
+            
         </>
     )
 }
