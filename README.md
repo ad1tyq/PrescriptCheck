@@ -43,16 +43,17 @@ The application will be available at [http://localhost:5173/](http://localhost:5
 
 ### Pushing Code
 
-4. **Start the development server**:
-   add everything in your edited code
+6. **add everything in your edited code**:
    ```bash
    git add .
    ```
-   commit your changes
+
+7. **commit your changes**:
    ```bash
    git commit -m "my commit"
    ```
-   push your code
+   
+8. **push your code**:
    ```bash
    git push -u origin newBranch
    ```
