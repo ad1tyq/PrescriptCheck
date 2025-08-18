@@ -2,11 +2,11 @@ function Navbar(){
     return(
         <>
         {/* navbar */}
-        <nav className="flex bg-gray-100 text-md px-10 py-5 border-0 border-b-1">
+        <nav className="flex justify-between bg-violet-400 text-md p-5">
             {/* logo */}
-            <a className="text-gray-900 text-2xl" href="/">ScriptCheck</a>
+            <a className="text-white font-semibold text-2xl" href="/">ScriptCheck</a>
             {/* navbar links */}
-            <ul className="flex ml-119">
+            <ul className="flex gap-10">
                 <CustomLink href="/upload">Upload Prescription</CustomLink>
                 <CustomLink href="/analysis">Medication Analysis</CustomLink>
                 <CustomLink href="/history">Medication History</CustomLink>
@@ -21,7 +21,7 @@ function CustomLink({href, children, ...props}){
         <>
         {/* navbar link component */}
         {/* if active ? css1 : css2 (for every other link) */}
-        <li className={path === href ? "text-gray-900 w-[17rem] hover:underline justify-center pt-1 flex" : "hover:text-gray-900 pt-1 hover:underline text-gray-600 w-[17rem] justify-center flex"}>
+        <li className={path === href ? "text-white font-bold duration-50 w-[10rem] justify-center pt-1 flex" : "text-white hover:font-bold pt-1 duration-50 w-[10rem] justify-center flex"}>
             <a href={href} {...props}>{children}</a>
         </li>
         </>
