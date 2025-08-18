@@ -28,10 +28,30 @@
    ```bash
    git checkout -b newBranch
    ```
+   check what branch you are in with
+   ```bash
+   git branch
+   ```
 
 5. **Start the development server**:
    ```bash
    npm run dev
+   ```
+
+### Pushing Code
+
+4. **Start the development server**:
+   add everything in your edited code
+   ```bash
+   git add .
+   ```
+   commit your changes
+   ```bash
+   git commit -m "my commit"
+   ```
+   push your code
+   ```bash
+   git push -u origin newBranch
    ```
 
    The application will be available at [http://localhost:5173/](http://localhost:5173/)
