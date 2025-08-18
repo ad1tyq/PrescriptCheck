@@ -1,7 +1,10 @@
+import Welcome from "../../components/welcome";
+import TestCardContainer from "../../components/testimonialCard";
 function HomePage(){
     return(
         <>
-            <p>Home</p>
+            <Welcome/>
+            <TestCardContainer/>
         </>
     )
 }
