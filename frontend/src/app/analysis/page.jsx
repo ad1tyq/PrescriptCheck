@@ -1,7 +1,7 @@
 function AnalysisPage(){
     return(
             <>
-            <div className="overflow-y-scroll h-[31rem]" style={{scrollbarWidth: 'none'}}>
+            <div className="min-h-[30rem]">
                 <p>Analysis</p>
             </div>
             </>
