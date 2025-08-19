@@ -29,7 +29,7 @@ function FileUploader() {
     }
     return (
         <>
-            <div className="bg-gray-300 rounded-[15px] pt-[1px] px-5 pb-7 w-[35rem] flex flex-col" style={{ alignItems: "center" }}>
+            <div className="bg-gray-300 rounded-[15px] shadow-lg pt-[1px] px-5 pb-7 w-[35rem] flex flex-col" style={{ alignItems: "center" }}>
                 <h1 className="text-3xl font-bold py-5 ml-0">Upload Your Prescription</h1>
                 {/* input area */}
                 <div className="flex flex-col rounded-[15px] p-5 w-[30rem] bg-white" style={{ alignItems: "center" }}>
