@@ -3,7 +3,7 @@ export const drugInteractInfo = {
     {
       med1: "Atorvastatin",
       med2: "Gemfibrozil",
-      med3: "",
+      med3: "Gemfibrozil",
       message: "Risk of severe muscle damage (rhabdomyolysis)",
     },
     {
