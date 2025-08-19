@@ -29,7 +29,7 @@ function FileUploader() {
     }
     return (
         <>
-        <div className="flex justify-center items-center h-screen">
+        <div className="flex justify-center items-center mt-16 h-auto">
             <div className="bg-violet-400 rounded-[15px] shadow-lg pt-[1px] px-5 pb-7 w-[35rem] flex flex-col" style={{ alignItems: "center" }}>
                 <h1 className="text-3xl text-white  font-bold py-5 ml-0">Upload Your Prescription</h1>
                 {/* input area */}
@@ -39,7 +39,7 @@ function FileUploader() {
                         <img src="../../assets/file-upload-fill.svg" alt="file upload" className="w-10 h-10 m-3" />
                         <p>Drag and drop your files here</p>
                         <input type="file" onChange={addFile}
-                            className="bg-violet-300 w-53 p-2 m-3 cursor-pointer rounded-md duration-300 hover:bg-violet-400 transition duration-100" />
+                            className="bg-violet-300 w-53 p-2 m-3 cursor-pointer rounded-md hover:bg-violet-400 transition duration-100" />
                         {file === null ? <p>{status}</p> : <></>}
                         {file && (
                             <div className="mb-4 text-sm">
