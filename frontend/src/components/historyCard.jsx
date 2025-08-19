@@ -29,8 +29,9 @@ function History() {
     }
     function resetFilter(){
         setFilterHistory(null);
+        setNameS(""); setSDateS(""); setEDateS(""); setMedStatus1(""); setSelectedType1("");
     }
-    const HistoryCard = ({ name, type, dosage, status, start, end }) => {
+    const HistoryCard = ({ name, type, dosage, status, freq, start, end }) => {
         // individual card
         return (
             <>
@@ -40,6 +41,7 @@ function History() {
                     <p className="text-sm">Type: {type}</p>
                     <p className="text-sm">Dosage: {dosage}</p>
                     <p className="text-sm">Status: {status}</p>
+                    <p className="text-sm">Frequency: {freq}</p>
                     <p className="text-sm">Start: {start}</p>
                     <p className="text-sm">End: {end}</p>
                 </div>
@@ -81,7 +83,7 @@ function History() {
                             card.medicines.map((medata) => (
                                 <HistoryCard key={`${card.id}-${medata.name}`}
                                 name={medata.name} type={medata.type} dosage={medata.dosage} status={medata.status}
-                                start={card.startDate} end={card.endDate} />
+                                start={card.startDate} end={card.endDate} freq={medata.frequency} />
                             ))
                         ))}
                     </div>
