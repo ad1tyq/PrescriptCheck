@@ -9,7 +9,7 @@ function Footer(){
             <div className="flex-auto mt-[clamp(1rem,1vw,1rem)] text-white">
                 <h1 className="font-semibold text-lg">Contact Us</h1>
                 <p className="text-sm">Email: support@prescriptcheck.com</p>
-                <p className="text-sm">Phone: +1 234 567 890</p>
+                <p className="text-sm">Phone: +91 620 054 6831</p>
             </div>
         </div>
         </>
