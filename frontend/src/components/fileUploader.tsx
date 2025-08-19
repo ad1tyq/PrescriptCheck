@@ -2,24 +2,30 @@ import { useState } from "react";
 function FileUploader() {
     const [file, setFile] = useState<File | null>(null);
     const [preview, setPrev] = useState<string>('');
+    const [status, setStatus] = useState<string>("Upload your file!");
     function addFile(e) {
+        const ACCEPTED_FORMATS = ['image/jpeg', 'image/png', 'image/webp', 'image/svg', 'image/jpg'];
+        
         if (e.target.files) {
             setFile(e.target.files[0]); // file = fileName
 
             // preview :
             if (e.target.files[0].type.startsWith('image/')) {
-                const reader = new FileReader();
-                reader.onload = () => {
-                    if (typeof reader.result === 'string') {
-                        setPrev(reader.result);
-                    }
-                };
-                reader.readAsDataURL(e.target.files[0]);
+                if (ACCEPTED_FORMATS.includes(e.target.files[0].type)) {
+                    const reader = new FileReader();
+                    reader.onload = () => {
+                        if (typeof reader.result === 'string') {
+                            setPrev(reader.result);
+                        }
+                    };
+                    reader.readAsDataURL(e.target.files[0]);
+                }
             } else {
+                setFile(null);
                 setPrev('');
+                setStatus("Unsupported file format!");
             }
         }
-
         console.log(e.target.files[0])
     }
     return (
@@ -29,38 +35,38 @@ function FileUploader() {
                 {/* input area */}
                 <div className="flex flex-col rounded-[15px] p-5 w-[30rem] bg-white" style={{ alignItems: "center" }}>
                     <div className="flex flex-col rounded-[15px] w-[25rem] m-5 p-7 border border-gray-300 bg-gray-100 cursor-pointer"
-                    style={{ alignItems: "center" }}>
+                        style={{ alignItems: "center" }}>
                         <img src="../../assets/file-upload-fill.svg" alt="file upload" className="w-10 h-10 m-3" />
                         <p>Drag and drop your files here</p>
                         <input type="file" onChange={addFile}
-                        className="bg-gray-300 w-53 p-2 m-3 cursor-pointer hover:bg-gray-400 transition duration-100" />
+                            className="bg-gray-300 w-53 p-2 m-3 cursor-pointer hover:bg-gray-400 transition duration-100" />
+                        {file === null ? <p>{status}</p> : <></>}
                         {file && (
                             <div className="mb-4 text-sm">
                                 <p>File name : {file.name}</p>
                                 <p>Size : {(file.size / 1024).toFixed(2)} KB</p>
                                 <p>File type : {file.type}</p>
-                                <button onClick={() => { setFile(null) }}
-                                className="cursor-pointer bg-gray-300 hover:bg-gray-400 m-3 mb-0 ml-0 p-2">Remove File</button>
+                                <button onClick={() => { setFile(null); setStatus("Upload your file!"); }}
+                                    className="cursor-pointer bg-gray-300 hover:bg-gray-400 m-3 mb-0 ml-0 p-2">Remove File</button>
                             </div>
                         )}
                     </div>
-                    <p>Accepted file formats: JPG, PNG</p>
+                    <p>Accepted file formats: JPG, JPEG, PNG, WebP & SVG </p>
                 </div>
-                {/* upload confirmation */}
                 {file && (
                     <div className="bg-white m-5 p-5 rounded-[15px] w-[30rem]">
                         <h1 className="text-2xl font-bold my-2 ml-0">Upload Confirmation</h1>
                         <div className="flex">
                             <div>
                                 <img src={preview} alt="uploaded file"
-                                className="h-15 w-15 mr-5 m-1 border border-gray-400"/>
+                                    className="h-15 w-15 mr-5 m-1 border border-gray-400" />
                             </div>
                             <div className="mb-4 text-sm">
-                            <p>File name : {file.name}</p>
-                            <p className="font-bold">Uploaded Successfully!!</p>
+                                <p>File name : {file.name}</p>
+                                <p className="font-bold">Uploaded Successfully!!</p>
                             </div>
                         </div>
-                        
+
                     </div>
                 )}
 
