@@ -3,7 +3,7 @@ import TestCardContainer from "../../components/testimonialCard";
 function HomePage(){
     return(
         <>
-        <div className="overflow-y-scroll h-[31rem]" style={{scrollbarWidth: 'none'}}>
+        <div className="min-h-[30rem]">
             <Welcome/>
             <TestCardContainer/>
         </div>
