@@ -102,9 +102,9 @@ function History() {
                                 const endDateOb = new Date(card.endDate);
                                 const endDateOb1 = new Date(eDateS);
                                 return(
-                                selectedType1 === medata.type &&
-                                startDateOb1 <= startDateOb &&
-                                endDateOb1 >= endDateOb &&
+                                selectedType1 === medata.type ||
+                                (startDateOb1 <= startDateOb &&
+                                endDateOb1 >= endDateOb) ||
                                 medStatus1 === medata.status ?
                                 <HistoryCard key={`${card.id}-${medata.name}`}
                                 name={medata.name} type={medata.type} dosage={medata.dosage} status={medata.status}
