@@ -3,7 +3,7 @@ import TestCardContainer from "../../components/testimonialCard";
 function HomePage(){
     return(
         <>
-        <div className="min-h-[30rem]">
+        <div className="min-h-[40vw]">
             <Welcome/>
             <TestCardContainer/>
         </div>
