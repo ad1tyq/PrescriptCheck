@@ -60,6 +60,7 @@ The application will be available at [http://localhost:5173/](http://localhost:5
 
 ### Updating to main
 9. **if you have committed your changes, then you can fetch whatever is in the main branch and be up to date by using:**
+
    ```bash
    git pull origin main
    ```
