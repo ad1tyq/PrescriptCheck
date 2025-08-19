@@ -26,7 +26,6 @@ function FileUploader() {
                 setStatus("Unsupported file format!");
             }
         }
-        console.log(e.target.files[0])
     }
     return (
         <>
