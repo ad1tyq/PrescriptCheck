@@ -2,7 +2,7 @@ function Navbar(){
     return(
         <>
         {/* navbar */}
-        <nav className="flex justify-between bg-violet-400 text-md p-5">
+        <nav className="flex justify-between bg-violet-500 text-md p-5">
             {/* logo */}
             <a className="text-white font-semibold text-2xl" href="/">PrescriptCheck</a>
             {/* navbar links */}
