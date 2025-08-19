@@ -34,7 +34,7 @@ function History() {
         // individual card
         return (
             <>
-                <div className="w-[25rem] rounded-lg overflow-y-scroll h-auto bg-gray-100 p-5 pt-3"
+                <div className="w-[25rem] rounded-lg shadow-lg overflow-y-scroll h-auto bg-gray-100 p-5 pt-3"
                 style={{ scrollbarWidth: "none" }}>
                     <h1 className="font-bold text-lg">{name}</h1>
                     <p className="text-sm">Type: {type}</p>
@@ -56,10 +56,10 @@ function History() {
                 <MedicineStatusDropdown medStatus={medStatus} setMedStatus={setMedStatus} />
                 <MedicineTypeDropdown selectedType={selectedType} setType={setSelectedType} />
                 <button onClick={onChangeFilter}
-                    className="bg-violet-400 hover:bg-violet-500 duration-300 text-white px-15 cursor-pointer rounded-md">
+                    className="bg-violet-400 hover:bg-violet-500 shadow-md duration-300 text-white px-15 cursor-pointer rounded-md">
                     Filter</button>
                 <button onClick={resetFilter}
-                    className="bg-violet-400 hover:bg-violet-500 duration-300 text-white px-15 cursor-pointer rounded-md">
+                    className="bg-violet-400 hover:bg-violet-500 shadow-md duration-300 text-white px-15 cursor-pointer rounded-md">
                     Reset</button>
             </div>
             {filterData && (

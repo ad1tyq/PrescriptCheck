@@ -4,9 +4,9 @@ function Navbar(){
         {/* navbar */}
         <nav className="flex justify-between bg-violet-500 text-md p-5">
             {/* logo */}
-            <a className="text-white font-semibold text-2xl" href="/">PrescriptCheck</a>
+            <a className="text-white font-bold text-2xl" href="/">PrescriptCheck</a>
             {/* navbar links */}
-            <ul className="flex ml-[clamp(5rem,47vw,47rem)] gap-10">
+            <ul className="flex ml-[clamp(5rem,46vw,46rem)] gap-10">
                 <CustomLink href="/upload">Upload Prescription</CustomLink>
                 <CustomLink href="/analysis">Medication Analysis</CustomLink>
                 <CustomLink href="/history">Medication History</CustomLink>

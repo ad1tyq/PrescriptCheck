@@ -5,7 +5,7 @@ const TestimonialCard = ({image, review}) => {
     // individual card
     return(
         <>
-        <div className="min-w-[30rem] rounded-lg overflow-y-scroll h-50 bg-gray-100 p-5 pt-3" style={{scrollbarWidth:"none"}}>
+        <div className="min-w-[30rem] shadow-lg rounded-lg overflow-y-scroll h-50 bg-gray-100 p-5 pt-3" style={{scrollbarWidth:"none"}}>
             <img src={image} alt="user testimonial"
             className="h-15 ml-5 my-4 w-15 rounded-[50px] object-cover"/>
             <h3 className="mx-4 mt-2">{review}</h3>
