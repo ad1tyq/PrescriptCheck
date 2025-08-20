@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useMedInfo } from "../context/MedInfoContext";
-import { MedInfoProvider } from "../context/MedInfoContext";
+import { useHistory } from "../context/HistoryContext";
 import { useNavigate } from "react-router-dom";
 function AnalyseText({ text }) {
     const AI_API_KEY = "AIzaSyAgHfEw45M0vwdfBssnGpEfQxzf5xPHu0s";
     const AI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${AI_API_KEY}`;
-    let prompt = `extract and give the drug names from this list in the form of a javascript array in this format : {
+    let prompt = `extract and give the drug names from this text as only single names in the form of a javascript array in this format : {
     name: 'Amoxicillin',
     type: 'antibiotic',
     dosage: '500mg',
@@ -26,6 +26,8 @@ function AnalyseText({ text }) {
   },` + text;
 
     const {setMedInfo} = useMedInfo();
+    const {setHistory} = useHistory();
+    //const { prescriptionHistory } = useHistory();
     const navigate = useNavigate(); 
     const [isLoading, setIsLoading] = useState(false);
     //const [goAnalyse, setGoAnalyse] = useState(false);
@@ -57,8 +59,9 @@ function AnalyseText({ text }) {
             //console.log("drugs listed :\n", DrugsListed);
             console.log("drugs array :\n",DrugsArray);
             setMedInfo(DrugsArray);
+            setHistory(c=>[...c,...DrugsArray]);
+            //console.log("prescriptionHistory:\n",prescriptionHistory)
             navigate("/analysis");
-            //MedInfoProvider(DrugsArray);
         } catch (err) {
             console.error(err);
         }

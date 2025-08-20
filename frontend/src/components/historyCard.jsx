@@ -3,7 +3,8 @@ import MedicineTypeDropdown from "./medicinetype.jsx";
 import MedicineStatusDropdown from "./medicineStatus.jsx";
 import { StartDate, EndDate } from "./medicineDate.jsx";
 import InputName from "./medicineUserName";
-import prescriptionHistory from "../../data/history.js";
+import { useHistory } from "../context/HistoryContext.jsx";
+//import prescriptionHistory from "../../data/history.js";
 function History() {
     const [nameStore, setNameStore] = useState(""); const [nameS, setNameS] = useState("");
     const [sDateStore, setSDateStore] = useState(""); const [sDateS, setSDateS] = useState("");
@@ -11,6 +12,8 @@ function History() {
     const [medStatus, setMedStatus] = useState(""); const [medStatus1, setMedStatus1] = useState("");
     const [selectedType, setSelectedType] = useState(""); const [selectedType1, setSelectedType1] = useState("");
     const [filterHistory, setFilterHistory] = useState(null);
+    const { prescriptionHistory } = useHistory();
+    console.log("prescription history : \n",prescriptionHistory);
     let filterData = {
         name: nameStore,
         startdate: sDateStore,

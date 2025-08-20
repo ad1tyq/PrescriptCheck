@@ -1,4 +1,4 @@
-const prescriptionHistory = [  {
+/*const prescriptionHistory = [  {
     name: 'Amoxicillin',
     type: 'antibiotic',
     dosage: '500mg',
@@ -82,4 +82,4 @@ const prescriptionHistory = [  {
   }
 ];
 
-export default prescriptionHistory;
+export default prescriptionHistory;*/
