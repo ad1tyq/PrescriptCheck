@@ -46,6 +46,7 @@ function ParentComponent() {
             });
 
             const data = await response.json();
+            console.log("text:\n",data);
             setOcrResult(data);
         } catch (error) {
             console.error('Error:', error);

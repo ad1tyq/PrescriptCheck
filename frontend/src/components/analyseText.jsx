@@ -10,7 +10,7 @@ function AnalyseText({ text }) {
     type: 'antibiotic',
     dosage: '500mg',
     frequency: '3 times daily',
-    status: 'completed',
+    status: 'active',
     startDate: '2023-05-15',
     endDate: '2023-06-15',
   },
