@@ -1,15 +1,5 @@
-import React, { useState } from 'react';
+import { medicineTypes } from "../../data/medicineTypes";
 function MedicineTypeDropdown({selectedType, setType}){
-    const medicineTypes = [
-    'antibiotic',
-    'pain-reliever',
-    'cholesterol',
-    'blood-pressure',
-    'diabetes',
-    'asthma',
-    'allergy',
-    'cough'
-    ];
     function onTypeChange(e){
         setType(e.target.value);
     }

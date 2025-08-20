@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useMedInfo } from "../context/MedInfoContext";
 import { useHistory } from "../context/HistoryContext";
 import { useNavigate } from "react-router-dom";
+import { medicineTypes } from "../../data/medicineTypes";
 function AnalyseText({ text }) {
     const AI_API_KEY = "AIzaSyAgHfEw45M0vwdfBssnGpEfQxzf5xPHu0s";
     const AI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${AI_API_KEY}`;
@@ -22,7 +23,7 @@ function AnalyseText({ text }) {
     status: 'completed',
     startDate: '2023-05-15',
     endDate: '2023-06-15',
-  },` + text;
+  }, and keep the types under this list ${medicineTypes}` + text;
 
     const {setMedInfo} = useMedInfo();
     const {setHistory} = useHistory();
@@ -62,7 +63,9 @@ function AnalyseText({ text }) {
             //console.log("prescriptionHistory:\n",prescriptionHistory)
             navigate("/analysis");
         } catch (err) {
+            setIsLoading(false);
             console.error(err);
+            alert("extractor is overloaded please try again later");
         }
     }
 
