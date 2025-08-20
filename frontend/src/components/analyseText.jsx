@@ -13,7 +13,6 @@ function AnalyseText({ text }) {
     status: 'completed',
     startDate: '2023-05-15',
     endDate: '2023-06-15',
-
   },
   {
     name: 'Ibuprofen',
