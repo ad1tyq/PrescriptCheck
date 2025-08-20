@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 function Navbar(){
     return(
         <>
         {/* navbar */}
         <nav className="flex justify-between bg-violet-500 text-md p-5">
             {/* logo */}
-            <a className="text-white font-bold text-2xl" href="/">PrescriptCheck</a>
+            <Link to="/" className="text-white font-bold text-2xl">PrescriptCheck</Link>
             {/* navbar links */}
             <ul className="flex ml-[clamp(5rem,46vw,46rem)] gap-10">
                 <CustomLink href="/upload">Upload Prescription</CustomLink>
@@ -23,7 +24,7 @@ function CustomLink({href, children, ...props}){
         {/* if active ? css1 : css2 (for every other link) */}
 
         <li className={path === href ? "text-white font-bold duration-50 w-[10rem] justify-center pt-1 flex" : "text-white hover:font-bold pt-1 duration-50 w-[10rem] justify-center flex"}>
-            <a href={href} {...props}>{children}</a>
+            <Link to={href} {...props}>{children}</Link>
         </li>
         </>
     )

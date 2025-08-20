@@ -1,5 +1,5 @@
 import { useState } from "react";
-function FileUploader() {
+function FileUploader({onFileSelect, onPreviewChange}) {
     const [file, setFile] = useState<File | null>(null);
     const [preview, setPrev] = useState<string>('');
     const [status, setStatus] = useState<string>("Upload your file!");
@@ -8,6 +8,9 @@ function FileUploader() {
         
         if (e.target.files) {
             setFile(e.target.files[0]); // file = fileName
+            if(onFileSelect){
+                onFileSelect(e.target.files[0]);
+            }
 
             // preview :
             if (e.target.files[0].type.startsWith('image/')) {
@@ -16,6 +19,7 @@ function FileUploader() {
                     reader.onload = () => {
                         if (typeof reader.result === 'string') {
                             setPrev(reader.result);
+                            onPreviewChange(reader.result);
                         }
                     };
                     reader.readAsDataURL(e.target.files[0]);
@@ -66,7 +70,6 @@ function FileUploader() {
                                 <p className="font-bold">Uploaded Successfully!!</p>
                             </div>
                         </div>
-
                     </div>
                 )}
 
