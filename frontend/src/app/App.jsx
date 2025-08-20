@@ -1,34 +1,32 @@
+import { Routes, Route } from 'react-router-dom';
 import HomePage from "../app/home/page.jsx"
 import HistoryPage from "../app/history/page.jsx"
 import UploadPage from "../app/upload/page.jsx"
 import AnalysisPage from "../app/analysis/page.jsx"
 import Footer from "../components/footer.jsx"
 import Navbar from "../components/navbar"
+import { MedInfoProvider } from "../context/MedInfoContext.jsx"
+import { HistoryProvider } from '../context/HistoryContext.jsx';
 function App() {
-  let Component;
-  switch(window.location.pathname){
-    case "/" :
-      Component = <HomePage/>
-      break;
-    case "/upload" :
-      Component = <UploadPage/>
-      break;
-    case "/analysis" :
-      Component = <AnalysisPage/>
-      break;
-    case "/history" :
-      Component = <HistoryPage/>
-      break;
-  }
   return (
     <>
-      <div className="flex flex-col">
-      <Navbar/>
-      <div className="">
-        {Component}
-      </div>
-      <Footer/>
-      </div>
+      <MedInfoProvider>
+        <HistoryProvider>
+          <div className="flex flex-col">
+            <Navbar />
+            <main className="flex-grow">
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/upload" element={<UploadPage />} />
+                <Route path="/analysis" element={<AnalysisPage />} />
+                <Route path="/history" element={<HistoryPage />} />
+              </Routes>
+            </main>
+            <Footer />
+          </div>
+        </HistoryProvider>
+      </MedInfoProvider>
+
     </>
   )
 }

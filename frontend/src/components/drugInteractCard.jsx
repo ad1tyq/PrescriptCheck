@@ -13,12 +13,10 @@ function DrugInteractInfo() {
                         </div>
                         {drugInteractInfo.HighRisk.map((interaction, index) => {
                             return (
-                                <>
-                                    <div key={index} className="ml-5">
+                                    <div key={`hr${index}`} className="ml-5">
                                         {interaction.med1} + {interaction.med2}
                                         {interaction.med3 && ` + ${interaction.med3}`}: {interaction.message}
                                     </div>
-                                </>
                             )
                         })}
                     </div>
@@ -30,11 +28,9 @@ function DrugInteractInfo() {
                         </div>
                         {drugInteractInfo.DosageWarning.map((dosage, index) => {
                             return (
-                                <>
-                                    <div key={index} className="ml-5">
+                                    <div key={`dose${index}`} className="ml-5">
                                         {dosage.med}: {dosage.message}
                                     </div>
-                                </>
                             )
                         })}
                     </div>
