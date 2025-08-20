@@ -15,8 +15,8 @@ function MedIndentifiedInfo() {
                 <h1 className="text-xl ml-1 -mt-1 font-semibold">Identified Medications</h1>
                 <div className="grid grid-cols-3 gap-10">
                     {medinfo.map((medata, index) => (
-                            <>
-                                <div key={index} className="w-[21rem] rounded-lg shadow-lg overflow-y-scroll h-auto bg-white p-5 pt-3"
+                            <div key={index}>
+                                <div className="w-[21rem] rounded-lg shadow-lg overflow-y-scroll h-auto bg-white p-5 pt-3"
                                     style={{ scrollbarWidth: "none" }}>
                                     <h1 className="font-bold text-lg">{medata.name}</h1>
                                     <p className="text-sm">Type: {medata.type}</p>
@@ -24,7 +24,7 @@ function MedIndentifiedInfo() {
                                     <p className="text-sm">Frequency: {medata.frequency}</p>
                                     <p className="text-sm">Status: {medata.status}</p>
                                 </div>
-                            </>
+                            </div>
 
                     ))}
                 </div>
