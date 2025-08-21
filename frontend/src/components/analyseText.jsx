@@ -100,7 +100,7 @@ function AnalyseText({ text }) {
                     AI1(prompt1);
                     }}
                     className="bg-violet-400 hover:bg-violet-500 text-white cursor-pointer px-4 py-2 rounded">
-                    {isLoading1 ? "Analysising..." : "Create Analysis"}</button>
+                    {isLoading1 ? "Analysing..." : "Create Analysis"}</button>
                 )}
             </div>
         </>
