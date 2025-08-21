@@ -74,7 +74,7 @@ function AnalyseText({ text }) {
             const AIresponse = data.candidates[0].content.parts[0].text;
             setIsLoading1(false);
             const DrugsInteractionString = AIresponse.replace(/^```javascript\n|\n```$/g, '');
-            const DrugsInteractionArray = new Function(`return ${DrugsInteractionString}`)();
+            let DrugsInteractionArray = new Function(`return ${DrugsInteractionString}`)();
             setInteract(DrugsInteractionArray); // console.log(DrugsInteractionArray);
             navigate("/analysis");
         } catch (err) {
