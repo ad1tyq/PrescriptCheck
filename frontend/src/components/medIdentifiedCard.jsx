@@ -1,7 +1,7 @@
 import { useMedInfo } from "../context/MedInfoContext";
 function MedIndentifiedInfo() {
     const { medinfo } = useMedInfo(); // Get the data from context
-    console.log("analysis page med info :\n",medinfo);
+    console.log("analysis page med info :\n",medinfo); // runs twice cause react strict mode
     if (!medinfo || medinfo.length === 0) {
         return (
             <div className="shadow-lg bg-gray-100 mt-10 rounded-[10px] w-[72rem] h-auto py-10 px-8 gap-5 flex flex-col justify-center">

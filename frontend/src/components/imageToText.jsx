@@ -2,6 +2,7 @@ import { useState } from "react";
 import FileUploader from "./fileUploader";
 import AnalyseText from "./analyseText";
 function ParentComponent() {
+    const OMR_IMG_SCANNER_API_KEY = import.meta.env.VITE_OMR_IMG_SCANNER_API_KEY;
     const [selectedFile, setSelectedFile] = useState(null);
     const [previewUrl, setPreviewUrl] = useState('');
     const [ocrResult, setOcrResult] = useState(null);
@@ -26,12 +27,12 @@ function ParentComponent() {
         try {
             // Create FormData for the API call
             const formData = new FormData();
-            formData.append('apikey', 'K82126628888957');
+            formData.append('apikey', OMR_IMG_SCANNER_API_KEY);
 
             // If you want to use the file directly (recommended)
             formData.append('file', selectedFile);
 
-            // Or if you want to use the base64 URL (alternative approach)
+            // if you want to use the base64 URL (alternative approach)
             // Note: OCR.space might not accept base64 directly in the 'url' field
             // formData.append('url', previewUrl);
 
