@@ -16,7 +16,7 @@ function History() {
     if (!prescriptionHistory || prescriptionHistory.length === 0){
         return (
             <div className="flex justify-center">
-                <div className="shadow-lg bg-gray-100 mt-10 rounded-[10px] w-[72rem] h-auto py-10 px-8 gap-5 flex flex-col justify-center">
+                <div className="shadow-lg bg-gray-100 mt-1 rounded-[10px] w-[72rem] h-auto py-10 px-8 gap-5 flex flex-col justify-center">
                 <p><b>No history information available. Please upload a prescription first.</b></p>
                 </div>
             </div>
