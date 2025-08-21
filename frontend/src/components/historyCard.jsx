@@ -4,7 +4,7 @@ import MedicineStatusDropdown from "./medicineStatus.jsx";
 import { StartDate, EndDate } from "./medicineDate.jsx";
 import InputName from "./medicineUserName";
 import { useHistory } from "../context/HistoryContext.jsx";
-//import prescriptionHistory from "../../data/history.js";
+
 function History() {
     const [nameStore, setNameStore] = useState(""); const [nameS, setNameS] = useState("");
     const [sDateStore, setSDateStore] = useState(""); const [sDateS, setSDateS] = useState("");
@@ -12,7 +12,7 @@ function History() {
     const [medStatus, setMedStatus] = useState(""); const [medStatus1, setMedStatus1] = useState("");
     const [selectedType, setSelectedType] = useState(""); const [selectedType1, setSelectedType1] = useState("");
     const [filterHistory, setFilterHistory] = useState(null);
-    const { prescriptionHistory } = useHistory();
+    const { prescriptionHistory } = useHistory(); // context
     if (!prescriptionHistory || prescriptionHistory.length === 0){
         return (
             <div className="flex justify-center">
@@ -20,8 +20,7 @@ function History() {
                 <p><b>No history information available. Please upload a prescription first.</b></p>
                 </div>
             </div>
-    );
-    }
+    );}
     let filterData = {
         name: nameStore,
         startdate: sDateStore,
@@ -36,7 +35,7 @@ function History() {
         setMedStatus1(medStatus); setMedStatus('');
         setSelectedType1(selectedType); setSelectedType('');
         setFilterHistory(1)
-        console.log("filter data : ", filterData)  // consoling the filter data
+        // console.log("filter data : ", filterData)  // consoling the filter data
     }
     function resetFilter() {
         setFilterHistory(null);
@@ -45,7 +44,6 @@ function History() {
     const HistoryCard = ({ name, type, dosage, status, freq, start, end }) => {
         // individual card
         return (
-            <>
                 <div className="w-[25rem] rounded-lg shadow-lg overflow-y-scroll h-auto bg-gray-100 p-5 pt-3"
                     style={{ scrollbarWidth: "none" }}>
                     <h1 className="font-bold text-lg">{name}</h1>
@@ -56,7 +54,6 @@ function History() {
                     <p className="text-sm">Start: {start}</p>
                     <p className="text-sm">End: {end}</p>
                 </div>
-            </>
         )
     }
 
@@ -90,8 +87,8 @@ function History() {
                     <div className="grid grid-cols-3 mx-4 rounded-lg overflow-x-scroll w-[97%] gap-10 py-10 px-5"
                         style={{ scrollbarWidth: 'none' }}>
                         {/* mapping array data for each card */}
-                        {prescriptionHistory.map((card) => (
-                            <HistoryCard key={`${card.id}-${card.name}`}
+                        {prescriptionHistory.map((card,index) => (
+                            <HistoryCard key={index /*`${card.id}-${card.name}`*/}
                                 name={card.name} type={card.type} dosage={card.dosage} status={card.status}
                                 start={card.startDate} end={card.endDate} freq={card.frequency} />
                         ))}
@@ -104,19 +101,20 @@ function History() {
                     <div className="grid grid-cols-3 mx-4 rounded-lg overflow-x-scroll w-[97%] gap-10 py-10 px-5"
                         style={{ scrollbarWidth: 'none' }}>
                         {/* mapping array data for each card */}
-                        {prescriptionHistory.map((card) => {
+                        {prescriptionHistory.map((card, index) => {
                             const startDateOb1 = new Date(sDateS);
                             const startDateOb = new Date(card.startDate);
                             const endDateOb = new Date(card.endDate);
                             const endDateOb1 = new Date(eDateS);
                             return (
                                 selectedType1 === card.type ||
-                                    (startDateOb1 <= startDateOb &&
-                                        endDateOb1 >= endDateOb) ||
+                                    ((startDateOb1 <= startDateOb || card.startDate === "N/A") &&
+                                        (endDateOb1 >= endDateOb || card.endDate === "N/A") ) ||
                                     medStatus1 === card.status ?
-                                    <HistoryCard key={`${card.id}-${card.name}`}
+                                    <HistoryCard key={index /*`${card.id}-${card.name}`*/}
                                         name={card.name} type={card.type} dosage={card.dosage} status={card.status}
-                                        start={card.startDate} end={card.endDate} /> : <></>
+                                        start={card.startDate} end={card.endDate} /> : 
+                                        <div key={index} className="absolute"></div>
                             )
                         })}
                     </div>

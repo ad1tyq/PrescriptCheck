@@ -46,8 +46,7 @@ function ParentComponent() {
                 body: formData
             });
 
-            const data = await response.json();
-            console.log("text:\n",data);
+            const data = await response.json(); // console.log("text:\n",data);
             setOcrResult(data);
         } catch (error) {
             console.error('Error:', error);

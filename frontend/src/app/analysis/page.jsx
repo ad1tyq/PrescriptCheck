@@ -2,7 +2,7 @@ import Analysis from "../../components/analysis";
 function AnalysisPage(){
     return(
             <>
-            <div className="min-h-[30rem]">
+            <div className="min-h-[70vh]">
                 <Analysis/>
             </div>
             </>
