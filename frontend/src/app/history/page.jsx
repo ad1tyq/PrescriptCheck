@@ -3,7 +3,7 @@ function HistoryPage(){
     return(
         <>
         <div className="min-h-[100vh]">
-            <h1 className="text-3xl ml-10 font-bold py-7">Medication History</h1>
+            <h1 className="text-3xl ml-10 -mt-7 font-bold py-7">Medication History</h1>
             <History/>
         </div>
         </>

@@ -39,7 +39,7 @@ function FileUploader({ onFileSelect, onPreviewChange }) {
     }
     return (
         <>
-            <div className="flex justify-center items-center mt-16 min-h-[100vh]">
+            <div className="flex justify-center items-center min-h-[100vh]">
                 <div className="bg-violet-400 rounded-[15px] shadow-lg pt-[1px] px-5 pb-7 w-[35rem] flex flex-col" style={{ alignItems: "center" }}>
                     <h1 className="text-3xl text-white  font-bold py-5 ml-0">Upload Your Prescription</h1>
                     {/* input area */}
