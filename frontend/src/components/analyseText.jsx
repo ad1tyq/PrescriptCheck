@@ -90,7 +90,7 @@ function AnalyseText({ text }) {
                     setIsLoading(true);
                     AI(prompt);
                 }}
-                    className="bg-violet-400 my-2 hover:bg-violet-500 text-white cursor-pointer px-4 py-2 rounded">
+                    className="bg-violet-400 shadow my-3 hover:bg-violet-500 text-white cursor-pointer px-4 py-2 rounded">
                     {isLoading ? "Extracting..." : "Extract Drugs"}</button>
                 <UpdateHistory/>
                 {goAnalyse && (
@@ -99,7 +99,7 @@ function AnalyseText({ text }) {
                     setIsLoading1(true);
                     AI1(prompt1);
                     }}
-                    className="bg-violet-400 hover:bg-violet-500 text-white cursor-pointer px-4 py-2 rounded">
+                    className="bg-violet-400 shadow hover:bg-violet-500 text-white cursor-pointer px-4 py-2 rounded">
                     {isLoading1 ? "Analysing..." : "Create Analysis"}</button>
                 )}
             </div>
