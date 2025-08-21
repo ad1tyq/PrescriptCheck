@@ -64,7 +64,7 @@ function FileUploader({ onFileSelect, onPreviewChange }) {
                         <p>Accepted file formats: JPG, JPEG, PNG, WebP & SVG</p>
                         <p>Maximum file size: <b>1MB</b></p>
                     </div>
-                    {file && (
+                    {file && preview && (
                         <div className="bg-white m-5 p-5 rounded-[15px] w-[30rem]">
                             <h1 className="text-2xl font-bold my-2 ml-0">Upload Confirmation</h1>
                             <div className="flex">

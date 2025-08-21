@@ -7,23 +7,29 @@ import Footer from "../components/footer.jsx"
 import Navbar from "../components/navbar"
 import { MedInfoProvider } from "../context/MedInfoContext.jsx"
 import { HistoryProvider } from '../context/HistoryContext.jsx';
+import { InteractProvider } from '../context/InteractContext.jsx';
+import { CheckInteractProvider } from '../context/CheckInteractContext.jsx';
 function App() {
   return (
     <>
       <MedInfoProvider>
         <HistoryProvider>
-          <div className="flex flex-col">
-            <Navbar />
-            <main className="flex-grow">
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/upload" element={<UploadPage />} />
-                <Route path="/analysis" element={<AnalysisPage />} />
-                <Route path="/history" element={<HistoryPage />} />
-              </Routes>
-            </main>
-            <Footer />
-          </div>
+          <CheckInteractProvider>
+            <InteractProvider>
+              <div className="flex flex-col">
+                <Navbar />
+                <main className="flex-grow">
+                  <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/upload" element={<UploadPage />} />
+                    <Route path="/analysis" element={<AnalysisPage />} />
+                    <Route path="/history" element={<HistoryPage />} />
+                  </Routes>
+                </main>
+                <Footer />
+              </div>
+            </InteractProvider>
+          </CheckInteractProvider>
         </HistoryProvider>
       </MedInfoProvider>
 

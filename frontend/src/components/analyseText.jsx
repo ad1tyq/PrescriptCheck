@@ -1,35 +1,25 @@
 import React, { useState } from "react";
+import { UpdateHistory } from "./updateHistory.jsx";
 import { useMedInfo } from "../context/MedInfoContext";
 import { useHistory } from "../context/HistoryContext";
 import { useNavigate } from "react-router-dom";
 import { medicineTypes } from "../../data/medicineTypes";
+import { useCheckInteract } from "../context/CheckInteractContext";
+import { useInteract } from "../context/InteractContext";
+import { text1, text2 } from "../../data/func.js";
 function AnalyseText({ text }) {
-    
+    const { checkinteract } = useCheckInteract();
+    const { setInteract } = useInteract();
+    const { setMedInfo } = useMedInfo();
+    const { setHistory } = useHistory(); // context
+    const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading1, setIsLoading1] = useState(false);
+    const [goAnalyse, setGoAnalyse] = useState(false);
     const AI_API_KEY = import.meta.env.VITE_AI_API_KEY;
     const AI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${AI_API_KEY}`;
-    let prompt = `extract and give the drug names from this text as only single names in the form of a javascript array in this format : {
-    name: 'Amoxicillin',
-    type: 'antibiotic',
-    dosage: '500mg',
-    frequency: '3 times daily',
-    status: 'active',
-    startDate: '2023-05-15',
-    endDate: '2023-06-15',
-  },
-  {
-    name: 'Ibuprofen',
-    type: 'pain-reliever',
-    dosage: '200mg',
-    frequency: 'as needed',
-    status: 'completed',
-    startDate: '2023-05-15',
-    endDate: '2023-06-15',
-  }, and keep the types under this list ${medicineTypes}` + text;
-
-    const {setMedInfo} = useMedInfo();
-    const {setHistory} = useHistory();
-    const navigate = useNavigate(); 
-    const [isLoading, setIsLoading] = useState(false);
+    let prompt = `${text1} ${medicineTypes}` + text;
+    let prompt1 = `${text2} ${checkinteract}`;
 
     // getting drug names
     const AI = async (val) => {
@@ -51,19 +41,48 @@ function AnalyseText({ text }) {
             if (!response.ok) throw new Error(data.error.message)
             const AIresponse = data.candidates[0].content.parts[0].text;
             setIsLoading(false);
+            setGoAnalyse(true); // console.log("AIresponse : \n", AIresponse);
             const DrugsListedString = AIresponse.replace(/^```javascript\n|\n```$/g, '');
             const DrugsArray = new Function(`return ${DrugsListedString}`)();
             setMedInfo(DrugsArray);
-            setHistory(c=>[...c,...DrugsArray]);
-            navigate("/analysis");
+            setHistory(c => [...c, ...DrugsArray]); // console.log("drugs array :\n",DrugsArray)
         } catch (err) {
             setIsLoading(false);
-            console.log("AI_API_KEY : ",AI_API_KEY);
             console.error(err);
             alert("extractor is overloaded please try again later");
         }
     }
 
+    // checking drug interactions 
+    const AI1 = async (val) => {
+        const question = {
+            message: val,
+        }
+        const req = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                "contents": [{
+                    "parts": [{ "text": question.message }]
+                }]
+            })
+        }
+        try {
+            const response = await fetch(AI_API_URL, req);
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.error.message)
+            const AIresponse = data.candidates[0].content.parts[0].text;
+            setIsLoading1(false);
+            const DrugsInteractionString = AIresponse.replace(/^```javascript\n|\n```$/g, '');
+            const DrugsInteractionArray = new Function(`return ${DrugsInteractionString}`)();
+            setInteract(DrugsInteractionArray); // console.log(DrugsInteractionArray);
+            navigate("/analysis");
+        } catch (err) {
+            setIsLoading1(false);
+            console.error(err);
+            alert("extractor is overloaded please try again later");
+        }
+    }
     return (
         <>
             <div className="flex justify-center flex-col items-center">
@@ -73,6 +92,16 @@ function AnalyseText({ text }) {
                 }}
                     className="bg-violet-400 my-2 hover:bg-violet-500 text-white cursor-pointer px-4 py-2 rounded">
                     {isLoading ? "Extracting..." : "Extract Drugs"}</button>
+                <UpdateHistory/>
+                {goAnalyse && (
+                    <button onClick={() => {
+                    //console.log("prompt 1 :\n",prompt1)
+                    setIsLoading1(true);
+                    AI1(prompt1);
+                    }}
+                    className="bg-violet-400 hover:bg-violet-500 text-white cursor-pointer px-4 py-2 rounded">
+                    {isLoading1 ? "Analysising..." : "Create Analysis"}</button>
+                )}
             </div>
         </>
     )

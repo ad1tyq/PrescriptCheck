@@ -1,14 +1,14 @@
 import { useMedInfo } from "../context/MedInfoContext";
 function MedIndentifiedInfo() {
     const { medinfo } = useMedInfo(); // Get the data from context
-    console.log("analysis page med info :\n",medinfo); // runs twice cause react strict mode
     if (!medinfo || medinfo.length === 0) {
         return (
             <div className="shadow-lg bg-gray-100 mt-10 rounded-[10px] w-[72rem] h-auto py-10 px-8 gap-5 flex flex-col justify-center">
-                <p><b>No medication information available. Please upload a prescription first.</b></p>
+                <p><b>No medications available. Please upload a prescription first.</b></p>
             </div>
     );
     }
+    // console.log("analysis page med info :\n",medinfo); // runs twice cause react strict mode
     return (
         <>
             <div className="shadow-lg bg-gray-100 mt-10 rounded-[10px] w-[72rem] h-auto py-10 px-8 gap-5 flex flex-col justify-center">
