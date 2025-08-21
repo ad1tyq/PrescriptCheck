@@ -1,6 +1,6 @@
 import PatientInfo from "./patientInfoCard.jsx";
 import MedIndentifiedInfo from "./medIdentifiedCard.jsx";
-import DrugInteractInfo from "./druginteractCard.jsx";
+import DrugInteractInfo from "./drugInteractCard.jsx";
 function Analysis() {
     return (
         <>
