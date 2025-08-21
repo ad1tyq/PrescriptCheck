@@ -77,11 +77,11 @@ function History() {
             </div>
             {filterData && (
                 <div className="px-10 flex gap-10 mt-5 -mb-4">
-                    <p>Name : {nameS}</p>
-                    <p>Start Date : {sDateS}</p>
-                    <p>End Date : {eDateS}</p>
-                    <p>Status : {medStatus1}</p>
-                    <p>Type : {selectedType1}</p>
+                    <p>Name : <b>{nameS}</b></p>
+                    <p>Start Date : <b>{sDateS}</b></p>
+                    <p>End Date : <b>{eDateS}</b></p>
+                    <p>Status : <b>{medStatus1}</b></p>
+                    <p>Type : <b>{selectedType1}</b></p>
                 </div>
             )}
             {filterData && filterHistory === null && (
