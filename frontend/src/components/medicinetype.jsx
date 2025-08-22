@@ -5,7 +5,7 @@ function MedicineTypeDropdown({selectedType, setType}){
     }
     return(
         <>
-        <select value={selectedType} onChange={onTypeChange} className="p-2 border rounded-md">
+        <select value={selectedType} onChange={onTypeChange} className="p-2 border max-w-[10rem] rounded-md">
             <option value="">Select type</option>
             {medicineTypes.map((type)=>(
                 <option key={type} value={type}>
