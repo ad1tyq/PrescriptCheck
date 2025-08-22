@@ -65,14 +65,14 @@ function ParentComponent() {
 
             {previewUrl && (
                 <div className="mt-4 flex flex-col items-center">
-                    <div className="shadow-lg bg-gray-100 my-2 rounded-[10px] text-center w-[34rem] h-auto py-5 px-8 gap-5 flex flex-col justify-center">
+                    <div className="shadow-lg bg-gray-100 my-2 rounded-[10px] text-center w-[clamp(18rem,34vw,34rem)] h-auto py-5 px-8 gap-5 flex flex-col justify-center text-[clamp(0.8rem,1vw,1rem)]">
                         <p><b>Please stay in this page until prescription analysis is finished</b></p>
                     </div>
                     <button
                         onClick={handleOcrProcessing}
                         disabled={isLoading}
-                        className="bg-violet-400 hover:bg-violet-500 shadow text-white cursor-pointer px-4 py-2 rounded mt-2"
-                    >
+                        className="bg-violet-400 hover:bg-violet-500 shadow
+                        text-[clamp(0.8rem,1vw,1rem)] text-white cursor-pointer px-4 py-2 rounded mt-2">
                         {isLoading ? "Scanning..." : "Scan Image"}
                     </button>
                 </div>

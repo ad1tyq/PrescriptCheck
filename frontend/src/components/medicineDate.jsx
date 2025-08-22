@@ -5,7 +5,7 @@ export function StartDate({sDateStore, setSDateStore}){
     }
     return(
         <>
-        <input type="date" value={sDateStore} onChange={onDateChange} className="border rounded-md pl-2"/>
+        <input type="date" value={sDateStore} onChange={onDateChange} className="border max-w-[10rem] rounded-md pl-2"/>
         </>
     )
 }
@@ -15,7 +15,7 @@ export function EndDate({eDateStore, setEDateStore}){
     }
     return(
         <>
-        <input type="date" value={eDateStore} onChange={onDateChange} className="border rounded-md pl-2"/>
+        <input type="date" value={eDateStore} onChange={onDateChange} className="border max-w-[10rem] rounded-md pl-2"/>
         </>
     )
 }
