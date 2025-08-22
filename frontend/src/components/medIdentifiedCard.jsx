@@ -17,7 +17,7 @@ function MedIndentifiedInfo() {
                 <div className="grid md:grid-cols-3 gap-10">
                     {medinfo.map((medata, index) => (
                             <div key={index}>
-                                <div className="w-[clamp(16.5rem,21vw,21rem)] rounded-lg shadow-lg overflow-y-scroll h-auto bg-white p-5 pt-3"
+                                <div className="w-[100%] rounded-lg shadow-lg overflow-y-scroll h-auto bg-white p-5 pt-3"
                                     style={{ scrollbarWidth: "none" }}>
                                     <h1 className="font-bold text-lg">{medata.name}</h1>
                                     <p className="text-sm">Type: {medata.type}</p>
