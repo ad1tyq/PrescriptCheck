@@ -1,4 +1,8 @@
-## ScriptCheck
+## PrescriptCheck
+
+### About
+
+PrescriptCheck is an AI-powered web application designed to act as a real-time safety auditor for medical prescriptions. The system provides a critical layer of verification to prevent common but dangerous medication errors.
 
 ### Installation
 
