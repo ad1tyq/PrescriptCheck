@@ -6,6 +6,8 @@ PrescriptCheck is an AI-powered web application designed to act as a real-time s
 
 This application is also deployed here [https://prescriptcheck-pearl.vercel.app/](https://prescriptcheck-pearl.vercel.app/)
 
+PS: The API keys are hidden here
+
 ### Installation
 
 1. **Clone the repository** (if not already done):
