@@ -1,6 +1,9 @@
 ## PrescriptCheck
+### About the team
 
-### About
+We are team StrawHats and this is our prototype for round 1 of the IIC 2.0 hackathon under the theme Health & Mental Wellness.
+
+### About the project
 
 PrescriptCheck is an AI-powered web application designed to act as a real-time safety auditor for medical prescriptions. The system provides a critical layer of verification to prevent common but dangerous medication errors.
 
