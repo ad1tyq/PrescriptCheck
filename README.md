@@ -7,7 +7,7 @@ We are team StrawHats and this is our prototype for round 1 of the IIC 2.0 hacka
 
 Aditya Bhardwaj
 
-----
+Rohan Eipe
 
 Aayush Vijay Nikam
 
